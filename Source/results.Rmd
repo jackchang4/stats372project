@@ -1,0 +1,35 @@
+---
+title: "Results"
+output:
+  html_notebook:
+    toc: yes
+  html_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#**Target Results**
+```{r}
+source("Proj/target.R")
+```
+#**Costco Results**
+```{r}
+source("Proj/costco.R")
+```
+
+
+#**Nordstrom Results**
+```{r}
+source("Proj/nordstrom.R")
+```
+#**Kohls Results**
+```{r}
+source("Proj/kohls.R")
+```
+#**Home Depot Results**
+```{r}
+source("Proj/homedepot.R")
+```

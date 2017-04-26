@@ -1,0 +1,65 @@
+[1] "Graph of sales over time"
+[1] "Seasonally Adjusted Sales"
+
+ Regression output for log_A = Alpha + Beta1*Time + Beta2*Time^2 is: 
+
+Call:
+lm(formula = log_A ~ Time + Time_sq, data = Sales_table)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.091526 -0.020334  0.000245  0.018863  0.094625 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  2.221e+01  1.200e-02 1850.88   <2e-16 ***
+Time         3.042e-02  5.831e-04   52.18   <2e-16 ***
+Time_sq     -1.624e-04  5.947e-06  -27.31   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.03796 on 91 degrees of freedom
+Multiple R-squared:  0.9922,	Adjusted R-squared:  0.992 
+F-statistic:  5773 on 2 and 91 DF,  p-value: < 2.2e-16
+
+[1] "Graph of residuals from first model"
+[1] "ACF of residuals"
+
+Autocorrelations of series ‘residuals’, by lag
+
+     0      1      2      3      4      5      6      7      8      9     10     11     12     13     14     15     16     17     18     19 
+ 1.000  0.776  0.664  0.524  0.367  0.334  0.264  0.183  0.093  0.051 -0.037 -0.065 -0.131 -0.167 -0.182 -0.174 -0.166 -0.118 -0.069 -0.056 
+[1] "Fit of the seasonally adjusted data"
+[1] "Two lags result"
+
+Call:
+lm(formula = log_A ~ log_A_lag + log_A_lag2 + Time + Time_sq, 
+    data = Sales_table)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.067417 -0.012045  0.000908  0.010760  0.077204 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  3.256e+00  1.491e+00   2.183   0.0317 *  
+log_A_lag    6.414e-01  1.048e-01   6.119 2.62e-08 ***
+log_A_lag2   2.131e-01  1.059e-01   2.012   0.0473 *  
+Time         4.591e-03  2.099e-03   2.187   0.0314 *  
+Time_sq     -2.898e-05  1.135e-05  -2.554   0.0124 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.02221 on 87 degrees of freedom
+  (2 observations deleted due to missingness)
+Multiple R-squared:  0.9972,	Adjusted R-squared:  0.9971 
+F-statistic:  7697 on 4 and 87 DF,  p-value: < 2.2e-16
+
+[1] "acf with lagged model"
+
+Autocorrelations of series ‘residuals_lag’, by lag
+
+     0      1      2      3      4      5      6      7      8      9     10     11     12     13     14     15     16     17     18     19 
+ 1.000  0.006  0.033  0.045 -0.241  0.090  0.126 -0.014 -0.151 -0.005 -0.100  0.050 -0.107 -0.017 -0.097 -0.041 -0.064 -0.035  0.075 -0.052 
+[1] "80% CI and forecast for one period ahead"
+( 15506467608 , 15953721538 , 16413875638 )
